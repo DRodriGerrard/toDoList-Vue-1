@@ -10,7 +10,9 @@
             </form>
         </div>
         <div class="col-">
-            <button type="button" class="btn btn-primary" @click="addTask">Add</button>
+            <button type="button" class="btn btn-primary" @click="addTask">
+                <font-awesome-icon icon="plus"/>
+            </button>
         </div>
         </div>
     </div>
