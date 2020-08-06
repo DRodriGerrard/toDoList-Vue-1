@@ -2,15 +2,15 @@
   "tasks": [
     {
       "id": "425b9c2c-410a-4213-a0f2-fe5949a98afe",
-      "title": "fyjrfyjrjsdrfj",
+      "title": "adios",
       "created": "2020-7-6 at 20:9:8",
       "completed": false
     },
     {
       "id": "aa167e4e-d06e-445a-bcfb-88c644909950",
-      "title": "htfmsfjmnytsrf",
+      "title": "nueva",
       "created": "2020-7-6 at 20:22:59",
-      "completed": false
+      "completed": true
     },
     {
       "id": "a4f8af20-e54c-44f0-8666-8c182c2009a2",
@@ -22,19 +22,7 @@
       "id": "e09fdf4d-5f0d-49e7-9f50-3b460d0ce428",
       "title": "gcgsrtykjyhgm",
       "created": "2020-7-6 at 20:23:5",
-      "completed": false
-    },
-    {
-      "id": "b0301bf7-87de-477d-b743-b490b93e0477",
-      "title": "dfbiodj wio0gjog jwojgpw jgh 54634",
-      "created": "2020-7-6 at 20:23:10",
-      "completed": false
-    },
-    {
-      "id": "8d43670b-83f8-4e4d-9b3f-57f670e93072",
-      "title": "holaaa",
-      "created": "2020-7-6 at 21:39:55",
-      "completed": false
+      "completed": true
     }
   ]
 }

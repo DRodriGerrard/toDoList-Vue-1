@@ -27,7 +27,8 @@
             v-for="task in tasks"
             v-bind:key="task.id"
             :task="task"
-            @taskEmitted="deleteTask($event)"
+            @deleteEmitted="deleteTask($event)"
+            @editEmitted="editTask($event)"
           />
         </div>
       </div>
@@ -88,6 +89,11 @@ export default {
 
         async deleteTask(task){
             await axios.delete('http://localhost:3000/tasks'+'/'+task.id)
+            .then( () => this.getTasks())
+        },
+
+        async editTask(task){
+            await axios.patch('http://localhost:3000/tasks'+'/'+task.id, task)
             .then( () => this.getTasks())
         }
     }
