@@ -19,5 +19,5 @@ export default {
 <style lang="sass">
 .home
   width: 50%
-  margin: 30px auto  
+  margin: 30px auto
 </style>
