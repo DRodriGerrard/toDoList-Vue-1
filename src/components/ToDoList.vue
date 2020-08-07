@@ -28,7 +28,7 @@
     <div class="jumbotron" v-if="tasks.length > 0">
       <div class="row">
         <div class="col-sm">
-          <div class="allbuttons">
+          <div class="buttons">
             <div>
               <button
                 type="button"
@@ -39,6 +39,17 @@
                 }"
               >
                 <font-awesome-icon icon="check" />
+              </button>
+            </div>
+            <div>
+              <button
+                type="button"
+                @click="hideCompleted"
+                class="btn btn-secondary"
+                v-bind:disabled="!hide"
+              >
+                <font-awesome-icon icon="eye-slash" v-if="!hidden" />
+                <font-awesome-icon icon="eye" v-if="hidden" />
               </button>
             </div>
             <div>
@@ -85,7 +96,9 @@ export default {
         return{
             tasktitle:'',
             tasks:[],
-            allCompleted:false
+            allCompleted:false,
+            hide:false,
+            hidden:false
         }
     },
 
@@ -99,8 +112,10 @@ export default {
             await axios.get('http://localhost:3000/tasks')
             .then(response => {
               this.tasks = response.data;
-              if (this.tasks.every(task=>task.completed)) this.allCompleted = true;
+              if (this.tasks.every(task => task.completed)) this.allCompleted = true;
               else this.allCompleted = false;
+              if (this.tasks.some(task => task.completed)) this.hide = true;
+              else this.hide = false;
               })
         },
 
@@ -113,7 +128,8 @@ export default {
                 id: uuidv4(),
                 title:this.tasktitle,
                 created:finalDate,
-                completed:false
+                completed:false,
+                hidden:false
             }
 
             await axios.post('http://localhost:3000/tasks', newTask)
@@ -166,12 +182,34 @@ export default {
               .then( () => this.getTasks())
             })
           }
+        },
+
+        hideCompleted(){
+          this.tasks.forEach(task=>{
+            if(task.completed){
+              if(!task.hidden){
+                task.hidden = true;
+                this.hide = true;
+                this.hidden = true;
+              } 
+              else{
+                task.hidden = false;
+                this.hide = false;
+                this.hidden = false;
+              } 
+            }
+            this.editTask(task); 
+          })
         }
     }
 }
 </script>
 
 <style lang="sass">
+.jumbotron
+  padding-top: 32px
+  padding-bottom: 32px
+  
 .row
   margin-top: 10px
   
