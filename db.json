@@ -4,25 +4,29 @@
       "id": "0c6496c1-2ff1-4f4c-af0f-f672fd1f340c",
       "title": "tarea 1",
       "created": "2020-7-7 at 21:2:47",
-      "completed": false
+      "completed": true,
+      "hidden": false
     },
     {
       "id": "8da068fd-7fea-414c-847f-8a1731a2c6d6",
-      "title": "tarea 2",
+      "title": "nueva tarea 2",
       "created": "2020-7-7 at 21:2:53",
-      "completed": false
+      "completed": false,
+      "hidden": false
     },
     {
       "id": "9b3c100b-2424-4080-83dc-d968d6f4fecb",
       "title": "trabajo de física",
       "created": "2020-7-7 at 21:3:15",
-      "completed": false
+      "completed": true,
+      "hidden": false
     },
     {
-      "id": "bedc5429-183a-4f87-909c-81771d4db0c3",
-      "title": "test programa",
-      "created": "2020-7-7 at 21:3:48",
-      "completed": false
+      "id": "c38cf25b-1120-4d3e-b0bb-a46df386d284",
+      "title": "nuevo test",
+      "created": "2020-7-7 at 23:45:27",
+      "completed": false,
+      "hidden": false
     }
   ]
 }

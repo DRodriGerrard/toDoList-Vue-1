@@ -1,5 +1,5 @@
 <template>
-  <div class="task">
+  <div class="task" v-bind:hidden="task.hidden">
     <div class="row">
       <div class="col-sm">
         <form class="form-group">
@@ -89,6 +89,7 @@ export default {
     display: grid
     grid-template-columns: 1fr 1fr 1fr
     column-gap: 2px
+    float: right
 
 .btn-warning, .btn-warning:hover, .btn-warning:focus, .btn-warning:disabled
     color: white
