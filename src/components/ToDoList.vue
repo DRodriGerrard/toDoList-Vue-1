@@ -36,6 +36,15 @@
                 <font-awesome-icon icon="check" />
               </button>
             </div>
+            <div>
+              <button
+                type="button"
+                @click="allTaskDelete"
+                class="btn btn-danger"
+              >
+                <font-awesome-icon icon="trash" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -139,6 +148,15 @@ export default {
             })
           }
           
+        },
+
+        allTaskDelete(){
+          if (confirm("Are you sure do you want to delete all your tasks?")){
+            this.tasks.forEach(async task => {
+              await axios.delete('http://localhost:3000/tasks'+'/'+task.id)
+              .then( () => this.getTasks())
+            })
+          }
         }
     }
 }
@@ -147,6 +165,9 @@ export default {
 <style lang="sass">
 .row
   margin-top: 10px
+  
+.col-sm
+  padding: 0
  
 .allbuttons
   display: grid
