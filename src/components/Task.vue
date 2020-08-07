@@ -13,21 +13,15 @@
           />
         </form>
       </div>
-      <div class="col-">
+      <div class="col- buttons">
         <div>
           <button
             type="button"
-            class="btn btn-success"
             @click="emitCompleted"
-            v-if="!this.task.completed"
-          >
-            <font-awesome-icon icon="check" />
-          </button>
-          <button
-            type="button"
-            class="btn btn-primary"
-            @click="emitCompleted"
-            v-if="this.task.completed"
+            v-bind:class="{
+              'btn btn-primary': task.completed,
+              'btn btn-success': !task.completed
+            }"
           >
             <font-awesome-icon icon="check" />
           </button>
@@ -36,23 +30,15 @@
           <button
             type="button"
             class="btn btn-warning"
-            @click="enableEdit"
-            v-if="!editable"
+            @click="handlerEdit"
             v-bind:disabled="task.completed"
           >
-            <font-awesome-icon icon="edit" />
-          </button>
-          <button
-            type="button"
-            class="btn btn-warning"
-            @click="emitEdit"
-            v-if="editable"
-          >
-            <font-awesome-icon icon="plus" />
+            <font-awesome-icon icon="edit" v-if="!editable" />
+            <font-awesome-icon icon="plus" v-if="editable" />
           </button>
         </div>
         <div>
-          <button type="button" class="btn btn-danger" @click="emitDelete">
+          <button type="button" class="btn btn-danger" @click="handlerDelete">
             <font-awesome-icon icon="trash" />
           </button>
         </div>
@@ -74,23 +60,22 @@ export default {
     console.log(this.task.title);
   },*/
   methods: {
-    emitDelete() {
+    handlerDelete() {
       this.$emit("deleteEmitted", this.task);
-    },
-
-    enableEdit() {
-      this.editable = true;
-    },
-
-    emitEdit() {
-      this.editable = false;
-      this.$emit("editEmitted", this.task);
     },
 
     emitCompleted() {
       if (this.task.completed === false) this.task.completed = true;
       else this.task.completed = false;
       this.$emit("editEmitted", this.task);
+    },
+
+    handlerEdit() {
+      if (this.editable == false) this.editable = true;
+      else {
+        this.editable = false;
+        this.$emit("editEmitted", this.task);
+      }
     }
   }
 };
@@ -100,7 +85,7 @@ export default {
 .task
     text-align: center
 
-.col-
+.buttons
     display: grid
     grid-template-columns: 1fr 1fr 1fr
     column-gap: 2px

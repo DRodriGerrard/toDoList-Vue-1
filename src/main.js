@@ -7,6 +7,10 @@ import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import VueConfirmDialog from "vue-confirm-dialog";
+
+Vue.use(VueConfirmDialog);
+Vue.component("vue-confirm-dialog", VueConfirmDialog.default);
 
 library.add(faPlus, faCheck, faTrash, faEdit);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
