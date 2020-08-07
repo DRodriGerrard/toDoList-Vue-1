@@ -22,6 +22,24 @@
     </div>
     <div class="jumbotron" v-if="tasks.length > 0">
       <div class="row">
+        <div class="col-sm">
+          <div class="allbuttons">
+            <div>
+              <button
+                type="button"
+                @click="allTaskCompleted"
+                v-bind:class="{
+                  'btn btn-primary': allCompleted,
+                  'btn btn-success': !allCompleted
+                }"
+              >
+                <font-awesome-icon icon="check" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-lg">
           <task
             v-for="task in tasks"
@@ -52,18 +70,24 @@ export default {
     data(){
         return{
             tasktitle:'',
-            tasks:[]
+            tasks:[],
+            allCompleted:false
         }
     },
 
     mounted(){
-        this.getTasks();
+      this.getTasks();
     },
 
     methods:{
 
         async getTasks(){
-            await axios.get('http://localhost:3000/tasks').then(response => this.tasks = response.data)
+            await axios.get('http://localhost:3000/tasks')
+            .then(response => {
+              this.tasks = response.data;
+              if (this.tasks.every(task=>task.completed)) this.allCompleted = true;
+              else this.allCompleted = false;
+              })
         },
 
         async addTask(){
@@ -95,7 +119,38 @@ export default {
         async editTask(task){
             await axios.patch('http://localhost:3000/tasks'+'/'+task.id, task)
             .then( () => this.getTasks())
+        },
+
+        allTaskCompleted(){
+          if(this.allCompleted === false) {
+            this.allCompleted = true;
+            this.tasks.forEach(async task => {
+              task.completed = true;
+              await axios.patch('http://localhost:3000/tasks'+'/'+task.id, task)
+              .then( () => this.getTasks())
+            })
+          }
+          else {
+            this.allCompleted = false;
+            this.tasks.forEach(async task => {
+              task.completed = false;
+              await axios.patch('http://localhost:3000/tasks'+'/'+task.id, task)
+              .then( () => this.getTasks())
+            })
+          }
+          
         }
     }
 }
 </script>
+
+<style lang="sass">
+.row
+  margin-top: 10px
+ 
+.allbuttons
+  display: grid
+  grid-template-columns: 1fr 1fr
+  column-gap: 2px
+  float: right
+</style>
