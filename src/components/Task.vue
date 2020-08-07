@@ -61,7 +61,7 @@ export default {
   },*/
   methods: {
     handlerDelete() {
-      this.$emit("deleteEmitted", this.task);
+      if (confirm("Are you sure?")) this.$emit("deleteEmitted", this.task);
     },
 
     emitCompleted() {
