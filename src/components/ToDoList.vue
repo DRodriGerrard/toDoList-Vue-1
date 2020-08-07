@@ -14,9 +14,14 @@
           </form>
         </div>
         <div class="col-">
-          <button type="button" class="btn btn-primary" @click="addTask">
-            <font-awesome-icon icon="plus" />
-          </button>
+          <div class="allbuttons">
+            <button type="button" class="btn btn-secondary" @click="clearTask">
+              <font-awesome-icon icon="eraser" />
+            </button>
+            <button type="button" class="btn btn-primary" @click="addTask">
+              <font-awesome-icon icon="plus" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -120,6 +125,10 @@ export default {
             .catch(err => console.log(err))
         },
 
+        clearTask(){
+          this.tasktitle = "";
+        },
+
         async deleteTask(task){
             await axios.delete('http://localhost:3000/tasks'+'/'+task.id)
             .then( () => this.getTasks())
@@ -168,6 +177,9 @@ export default {
   
 .col-sm
   padding: 0
+
+.col-
+  margin-left: 3px
  
 .allbuttons
   display: grid
