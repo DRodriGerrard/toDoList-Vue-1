@@ -14,7 +14,7 @@
           </form>
         </div>
         <div class="col-">
-          <div class="allbuttons">
+          <div class="formbuttons">
             <button type="button" class="btn btn-secondary" @click="clearTask">
               <font-awesome-icon icon="eraser" />
             </button>
@@ -93,6 +93,8 @@
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import Task from './Task';
+
+require ("../assets/styles/ToDoList.sass");
 
 export default {
     name:'ToDoList',
@@ -211,30 +213,3 @@ export default {
     }
 }
 </script>
-
-<style lang="sass">
-.jumbotron
-  padding-top: 32px
-  padding-bottom: 32px
-  
-.row
-  margin-top: 10px
-  
-.col-sm
-  padding: 0
-
-.col-
-  margin-left: 3px
- 
-.allbuttons
-  display: grid
-  grid-template-columns: 1fr 1fr
-  column-gap: 2px
-  float: right
-
-.tasksbuttons
-  display: grid
-  grid-template-columns: 1fr 1fr 1fr 1fr
-  column-gap: 2px
-  float: right
-</style>

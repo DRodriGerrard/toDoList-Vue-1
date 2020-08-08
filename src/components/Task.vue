@@ -48,6 +48,8 @@
 </template>
 
 <script>
+require("../assets/styles/Task.sass");
+
 export default {
   name: "Task",
   data() {
@@ -80,23 +82,3 @@ export default {
   }
 };
 </script>
-
-<style lang="sass">
-.task
-    text-align: center
-
-.buttons
-    display: grid
-    grid-template-columns: 1fr 1fr 1fr
-    column-gap: 2px
-    float: right
-
-.btn-warning, .btn-warning:hover, .btn-warning:focus, .btn-warning:disabled
-    color: white
-
-button
-    width: 44px
-
-.completed
-    background-color: #bdecb6 !important
-</style>

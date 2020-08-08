@@ -18,20 +18,27 @@
       "id": "9b3c100b-2424-4080-83dc-d968d6f4fecb",
       "title": "trabajo de física",
       "created": "2020-7-7 at 21:3:15",
-      "completed": true,
+      "completed": false,
       "hidden": false
     },
     {
       "id": "c38cf25b-1120-4d3e-b0bb-a46df386d284",
       "title": "nuevo test",
       "created": "2020-7-7 at 23:45:27",
-      "completed": true,
+      "completed": false,
       "hidden": false
     },
     {
       "id": "4e7cd0e3-515c-41f9-92cc-fa1fe6a3fad4",
       "title": "n c n n  ndnnfnhfnhfnfn",
       "created": "2020-7-8 at 13:28:0",
+      "completed": false,
+      "hidden": false
+    },
+    {
+      "id": "f27f453c-393d-409b-bf7e-25f880a7ab75",
+      "title": "gbfsfg",
+      "created": "2020-7-8 at 14:2:36",
       "completed": false,
       "hidden": false
     }
