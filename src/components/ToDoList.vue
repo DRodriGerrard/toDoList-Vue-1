@@ -28,7 +28,7 @@
     <div class="jumbotron" v-if="tasks.length > 0">
       <div class="row">
         <div class="col-sm">
-          <div class="buttons">
+          <div class="tasksbuttons">
             <div>
               <button
                 type="button"
@@ -48,8 +48,17 @@
                 class="btn btn-secondary"
                 v-bind:disabled="!hide"
               >
-                <font-awesome-icon icon="eye-slash" v-if="!hidden" />
-                <font-awesome-icon icon="eye" v-if="hidden" />
+                <font-awesome-icon icon="eye-slash" />
+              </button>
+            </div>
+            <div>
+              <button
+                type="button"
+                @click="showCompleted"
+                class="btn btn-info"
+                v-bind:disabled="!hidden"
+              >
+                <font-awesome-icon icon="eye" />
               </button>
             </div>
             <div>
@@ -116,6 +125,8 @@ export default {
               else this.allCompleted = false;
               if (this.tasks.some(task => task.completed)) this.hide = true;
               else this.hide = false;
+              if (this.tasks.some(task => task.hidden)) this.hidden = true;
+              else this.hidden = false;
               })
         },
 
@@ -186,19 +197,15 @@ export default {
 
         hideCompleted(){
           this.tasks.forEach(task=>{
-            if(task.completed){
-              if(!task.hidden){
-                task.hidden = true;
-                this.hide = true;
-                this.hidden = true;
-              } 
-              else{
-                task.hidden = false;
-                this.hide = false;
-                this.hidden = false;
-              } 
-            }
-            this.editTask(task); 
+            if(task.completed) task.hidden = true;
+            this.editTask(task);
+          })
+        },
+
+        showCompleted(){
+          this.tasks.forEach(task=>{
+            if(task.hidden) task.hidden = false;
+            this.editTask(task);
           })
         }
     }
@@ -222,6 +229,12 @@ export default {
 .allbuttons
   display: grid
   grid-template-columns: 1fr 1fr
+  column-gap: 2px
+  float: right
+
+.tasksbuttons
+  display: grid
+  grid-template-columns: 1fr 1fr 1fr 1fr
   column-gap: 2px
   float: right
 </style>

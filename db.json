@@ -4,7 +4,7 @@
       "id": "0c6496c1-2ff1-4f4c-af0f-f672fd1f340c",
       "title": "tarea 1",
       "created": "2020-7-7 at 21:2:47",
-      "completed": true,
+      "completed": false,
       "hidden": false
     },
     {
@@ -25,6 +25,13 @@
       "id": "c38cf25b-1120-4d3e-b0bb-a46df386d284",
       "title": "nuevo test",
       "created": "2020-7-7 at 23:45:27",
+      "completed": true,
+      "hidden": false
+    },
+    {
+      "id": "4e7cd0e3-515c-41f9-92cc-fa1fe6a3fad4",
+      "title": "n c n n  ndnnfnhfnhfnfn",
+      "created": "2020-7-8 at 13:28:0",
       "completed": false,
       "hidden": false
     }
