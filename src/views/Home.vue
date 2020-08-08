@@ -8,6 +8,8 @@
 // @ is an alias to /src
 import ToDoList from "@/components/ToDoList.vue";
 
+require("../assets/styles/Home.sass");
+
 export default {
   name: "Home",
   components: {
@@ -15,9 +17,3 @@ export default {
   }
 };
 </script>
-
-<style lang="sass">
-.home
-  width: 50%
-  margin: 30px auto
-</style>
